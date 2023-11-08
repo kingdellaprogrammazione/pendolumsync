@@ -9,7 +9,7 @@ avg:
 	python3 src/python/avg.py
 
 pformat:
-	yapf -i --style=google ./src/python/coordinate.py 
+	yapf -i --style=google ./src/python/coordinate.py ./src/python/plotter.py
 
 cformat:
 	clang-format -i src/c++/tracking.cpp 

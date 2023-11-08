@@ -1,6 +1,3 @@
-from cgitb import grey
-from distutils.log import error
-
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -19,7 +16,6 @@ extension = ".txt"
 paths_list = []
 
 # Load paths
-
 for i in list_prefix:
     last_part = i + "_avg" + extension
     complete_path = homedir / proj_path / "data" / last_part
@@ -66,48 +62,39 @@ def q_t(x, par):
     return y
 
 
-# Check on coordinates ?
+def obtain_distance(a, b):
+    return math.sqrt(pow(a[0] - b[0], 2) + pow(a[1] - b[1], 2))
+
 
 # Conversion from coordinates to angles
 # Dx pendolum and cart
 # Obtain the angle
 
-
-def obtain_distance(a, b):
-    return math.sqrt(pow(a[0] - b[0], 2) + pow(a[1] - b[1], 2))
-
-
-# Write to check lenghts of lists
-
 # Calculate angles
 list_tmp_dx = [data_list[1], data_list[3]]
 list_angle_dx = []
-assert (len(list_tmp_dx[0]) == len(
-    list_tmp_dx[1])), "Different list lenghts"
+assert (len(list_tmp_dx[0]) == len(list_tmp_dx[1])), "Different list lenghts"
 for i in range(len(list_tmp_dx[0])):
     point_1 = list_tmp_dx[0][i]  # pendolum point
     point_2 = list_tmp_dx[1][i]  # cart point
-    angle = TMath.ASin(
-        (point_1[0] - point_2[0]) /
-        obtain_distance(point_1, point_2)) * TMath.RadToDeg()
+    angle = TMath.ASin((point_1[0] - point_2[0]) /
+                       obtain_distance(point_1, point_2)) * TMath.RadToDeg()
     # coordinate origin is in figure top left
     list_angle_dx.append(angle)
 
 list_tmp_sx = [data_list[0], data_list[2]]
 list_angle_sx = []
-assert (len(list_tmp_sx[0]) == len(
-    list_tmp_sx[1])), "Different lenght of lists"
+assert (len(list_tmp_sx[0]) == len(list_tmp_sx[1])), "Different lenght of lists"
 for i in range(len(list_tmp_sx[0])):
     point_1 = list_tmp_sx[0][i]  # pendolum point
     point_2 = list_tmp_sx[1][i]  # cart point
-    angle = TMath.ASin(
-        (point_1[0] - point_2[0]) /
-        obtain_distance(point_1, point_2)) * TMath.RadToDeg()
+    angle = TMath.ASin((point_1[0] - point_2[0]) /
+                       obtain_distance(point_1, point_2)) * TMath.RadToDeg()
     # coordinate origin is in figure top left
     list_angle_sx.append(angle)
 
-assert (len(list_angle_sx) == len(list_angle_dx)
-       ), "Different lenght of angle lists"
+assert (
+    len(list_angle_sx) == len(list_angle_dx)), "Different lenght of angle lists"
 
 # Draw graphs
 # Coordinate h = theta_1 + theta_2
@@ -120,10 +107,10 @@ fps = 25
 instants_list = [i / fps for i in range(len(h_list))]
 
 # Fit
-graph_q = TGraph(len(q_list), np.asarray(instants_list),
-                 np.asarray(q_list))
+graph_q = TGraph(len(q_list), np.asarray(instants_list), np.asarray(q_list))
 
-# Defining the function: the numbers represent the interval of definition and the number of free parameters
+# Defining the function: the numbers represent the interval of definition and the
+#  number of free parameters
 
 f_q = TF1("fit_q", q_t, 4.6, 53, 5)
 
@@ -143,8 +130,7 @@ chireduced_q = chiSquare_q / NDOF
 print("chisquared/NDOF:" + str(chireduced_q))
 
 # Fit
-graph_h = TGraph(len(h_list), np.asarray(instants_list),
-                 np.asarray(h_list))
+graph_h = TGraph(len(h_list), np.asarray(instants_list), np.asarray(h_list))
 
 # Defining the function: the numbers represent the interval of definition and the
 # number of free parameters
@@ -173,12 +159,13 @@ chireduced_h = chiSquare_h / NDOF
 print("chisquared/NDOF:" + str(chireduced_h))
 
 # Figure relative to q(t)
+
 fig1 = plt.figure(1)
 
 frame1_1 = fig1.add_axes((.1, .35, .8, .55))
 frame1_1.set_xlabel("Istante (s)")
 frame1_1.set_ylabel("q (°)")
-frame1_1.set_title("Fit della funzione q(t)")
+frame1_1.set_title("Fit della funzione q(t) e residui")
 
 frame1_1.yaxis.get_ticklocs(minor=True)
 frame1_1.xaxis.get_ticklocs(minor=True)
@@ -189,6 +176,7 @@ frame1_1.grid(which='minor', alpha=0.2)
 frame1_1.grid(which='major', alpha=0.5)
 
 # Set display limits
+
 frame1_1.set_xlim(0, 55)
 
 newyfittedpoints_q = []
@@ -200,11 +188,11 @@ line1_2 = plt.plot(instants_list,
                    q_list,
                    '.r',
                    markersize='4',
-                   label='Dati acquisiti')  # aggiungere errori
+                   label='Dati acquisiti')
 line1_3 = plt.plot(new_instants_q,
                    newyfittedpoints_q,
-                   '-b',           
-                   markersize='3',        
+                   '-b',
+                   markersize='3',
                    label='Fit')
 
 yfittedpoints_q = []
@@ -212,6 +200,7 @@ for i in instants_list:
     yfittedpoints_q.append(fitted_q.Eval(i))
 
 # Plot the difference between the fit and the points
+
 difference_q = [a - b for a, b in zip(yfittedpoints_q, q_list)]
 
 frame1_2 = fig1.add_axes((.1, .1, .8, .15))
@@ -234,18 +223,18 @@ residual_q = plt.plot(instants_list[113:],
                       markersize='2',
                       label='Residui')
 
-frame1_1.legend(loc='upper left', framealpha = 0.95)
+frame1_1.legend(loc='upper left', framealpha=0.95)
 
 plt.savefig(homedir / proj_path / "media" / "plot" / "fit_q.pdf")
 
-fig2 = plt.figure(2)
+# Figure relative to q(t)
 
-#xstart, ystart, xend, yend [units are fraction of the image frame, from bottom left corner]
+fig2 = plt.figure(2)
 
 frame2_1 = fig2.add_axes((.1, .35, .8, .55))
 frame2_1.set_xlabel("Istante (s)")
 frame2_1.set_ylabel("h (°)")
-frame2_1.set_title("Fit della funzione h(t)")
+frame2_1.set_title("Fit della funzione h(t) e residui")
 
 frame2_1.yaxis.get_ticklocs(minor=True)
 frame2_1.xaxis.get_ticklocs(minor=True)
@@ -268,20 +257,21 @@ line2_2 = plt.plot(instants_list,
                    h_list,
                    '.r',
                    markersize='4',
-                   label='Dati acquisiti')  # aggiungere errori
+                   label='Dati acquisiti')
 line2_3 = plt.plot(new_instants_h,
                    newyfittedpoints_h,
                    '-b',
                    markersize='3',
                    label='Fit')
 
-frame2_1.legend(loc='upper left', framealpha = 0.95)
+frame2_1.legend(loc='upper left', framealpha=0.95)
 
 yfittedpoints_h = []
 for i in instants_list:
     yfittedpoints_h.append(fitted_h.Eval(i))
 
 # Plot the difference between the fit and the points
+
 difference_h = [a - b for a, b in zip(yfittedpoints_h, h_list)]
 
 frame2_2 = fig2.add_axes((.1, .1, .8, .15))
@@ -310,8 +300,6 @@ plt.savefig(homedir / proj_path / "media" / "plot" / "fit_h.pdf")
 
 fig3 = plt.figure(3)
 
-#xstart, ystart, xend, yend [units are fraction of the image frame, from bottom left corner]
-
 frame3_1 = fig3.add_axes((.1, .1, .8, .8))
 frame3_1.set_xlabel("Istante (s)")
 frame3_1.set_ylabel("Angolo (°)")
@@ -333,14 +321,14 @@ line3_1 = plt.plot(instants_list,
                    list_angle_sx,
                    '.r',
                    markersize='4',
-                   label="$\\theta_1$")  
+                   label="$\\theta_1$")
 line3_2 = plt.plot(instants_list,
                    list_angle_dx,
                    '.b',
                    markersize='4',
                    label="$\\theta_2$")
 
-frame3_1.legend(loc='upper left', framealpha = 0.95)
+frame3_1.legend(loc='upper left', framealpha=0.95)
 
 plt.savefig(homedir / proj_path / "media" / "plot" / "angles_accurate.pdf")
 
@@ -348,9 +336,9 @@ frame3_1.set_xlim(2, 50)
 
 plt.savefig(homedir / proj_path / "media" / "plot" / "angles_full.pdf")
 
-fig4 = plt.figure(4)
+# Draw details
 
-#xstart, ystart, xend, yend [units are fraction of the image frame, from bottom left corner]
+fig4 = plt.figure(4)
 
 frame4_1 = fig4.add_axes((.1, .1, .8, .8))
 frame4_1.set_xlabel("Istante (s)")
@@ -369,7 +357,7 @@ line3_1 = plt.plot(instants_list,
                    list_angle_sx,
                    '-r',
                    markersize='4',
-                   label="$\\theta_1$")  
+                   label="$\\theta_1$")
 line3_2 = plt.plot(instants_list,
                    list_angle_dx,
                    '-b',
@@ -379,7 +367,7 @@ line3_2 = plt.plot(instants_list,
 frame4_1.set_xlim(10, 50)
 frame4_1.set_ylim(6, 8)
 
-frame4_1.legend(loc='upper left', framealpha = 0.95)
+frame4_1.legend(loc='upper left', framealpha=0.95)
 
 plt.savefig(homedir / proj_path / "media" / "plot" / "angles_decrease.pdf")
 
