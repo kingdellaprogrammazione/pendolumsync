@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper, twoside]{article}
+\documentclass[11pt, a4paper, twoside, italian]{article}
 
 \usepackage{blindtext}
 \usepackage{geometry}
@@ -6,7 +6,7 @@
 \usepackage{titlesec}
 \usepackage{indentfirst}
 \usepackage{graphicx}
-\usepackage[italian]{babel}
+\usepackage{babel}
 \usepackage{multicol}
 \usepackage{amsmath}
 \usepackage{subcaption}
@@ -31,6 +31,8 @@
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{cleveref}
 \usepackage[ddmmyyyy]{datetime}
 \usepackage[export]{adjustbox}
 % for watermark
@@ -134,7 +136,7 @@ In tutti questi casi sono considerate situazioni in cui i singoli elementi che c
 Le interazioni che abbiamo descritto fino ad ora sono però manifestazione di interazioni non fondamentali dal punto di vista fisico: si tratta di fenomeni emergenti. 
 Esistono però anche delle situazioni in cui la sincronizzazione è attribuibile alle interazioni fisiche fondamentali: possiamo per esempio pensare ai sistemi meccanici composti da pendoli o metronomi accoppiati.
 
-Un problema di questo tipo fu affrontato per la prima volta nel Febbraio 1665, dal fisico Olandese Christiaan Huygens: doveva affrontare il problema di migliorare la precisione degli orologi a pendolo, anche essi da lui inventati. Si trovava nella sua stanza a causa di una "leggera indisposizione" quando si accorse che due orologi a pendolo che aveva costruito si erano spontaneamente sincronizzati, in controfase\footnote{controllare}. Provò allora, sospettando un accoppiamento dovuto al mezzo a cui si trovavano entrambi in contatto, a svolgere alcuni esperimenti, in particolare agganciandone due a un supporto in legno sospeso tra due sedie, come si nota da Fig.\ref{pendoli_huygens}.
+Un problema di questo tipo fu affrontato per la prima volta nel Febbraio 1665, dal fisico Olandese Christiaan Huygens: doveva affrontare il problema di migliorare la precisione degli orologi a pendolo, anche essi da lui inventati. Si trovava nella sua stanza a causa di una "leggera indisposizione" quando si accorse che due orologi a pendolo che aveva costruito si erano spontaneamente sincronizzati, in controfase\footnote{controllare}. Provò allora, sospettando un accoppiamento dovuto al mezzo a cui si trovavano entrambi in contatto, a svolgere alcuni esperimenti, in particolare agganciandone due a un supporto in legno sospeso tra due sedie, come si nota da \cref{pendoli_huygens}.
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{../../media/img/pendolums.png}
@@ -151,7 +153,7 @@ Un problema più semplice da affrontare rispetto a quello dei due orologi a pend
      costanti; le minuscole invece indicano le variabili.} }
     \label{pendolicorpolibero}
 \end{figure}
-Innanzitutto si consideri il diagramma indicato in Fig.\ref{pendolicorpolibero}.
+Innanzitutto si consideri il diagramma indicato in \cref{pendolicorpolibero}.
 I tre corpi coinvolti nella dinamica sono i due pendoli, il cui centro 
 geometrico è indicato dai punti $\mathbf{P}_1$ e $\mathbf{P}_2$, entrambi di massa $m$,
 e il supporto rigido, costituito da due carrellini identici collegati tra loro da un'asta,
@@ -170,106 +172,99 @@ In questo modo è possibile ottenere una notevole semplificazione della trattazi
 descrivendo comunque con una buona approssimazione il moto degli elementi principali.
 
 È possibile quindi ricavare le coordinate dei tre elementi rilevanti, ossia i due pendoli e il supporto:
-$$
-\mathbf{P}_1 = (d - L + R \sin \theta_1, S_y - R \cos \theta_1 ) 
-$$
-$$
-\mathbf{P}_2 = (d + L + R \sin \theta_2, S_y - R \cos \theta_2 ) 
-$$
-$$
-\mathbf{S} = (d , S_y) 
-$$
+\begin{gather*}
+\mathbf{P}_1 = (d - L + R \sin \theta_1, S_y - R \cos \theta_1 ) \, , \\
+\mathbf{P}_2 = (d + L + R \sin \theta_2, S_y - R \cos \theta_2 ) \, , \\
+\mathbf{S} = (d , S_y) \, .
+\end{gather*}
 Calcolando quindi l'energia cinetica per ogni oggetto:
-$$
-K_{\mathbf{P}_1}=  \frac{m}{2} \lVert \dot{\mathbf{P}}_1 \rVert^2 =  \frac{m}{2}(\dot{d}^2 + R^2 \dot\theta_1^2+ 2\dot{d}R\cos\theta_1 \dot{\theta_1}) 
-$$
-$$
-K_{\mathbf{P}_2} = \frac{m}{2} \lVert \dot{\mathbf{P}}_2 \rVert^2 =  \frac{m}{2}(\dot{d}^2 + R^2 \dot\theta_2^2+ 2\dot{d}R\cos\theta_2 \dot{\theta_2})  
-$$
-$$
-K_{\mathbf{S}} =  \frac{M}{2} \lVert \dot{\mathbf{S}} \rVert^2 = \frac{M}{2} \dot{d}^2
-$$
+\begin{gather*}
+K_{\mathbf{P}_1}=  \frac{m}{2} \lVert \dot{\mathbf{P}}_1 \rVert^2 =  \frac{m}{2}(\dot{d}^2 + R^2 \dot\theta_1^2+ 2\dot{d}R\cos\theta_1 \dot{\theta_1}) \, , \\
+K_{\mathbf{P}_2} = \frac{m}{2} \lVert \dot{\mathbf{P}}_2 \rVert^2 =  \frac{m}{2}(\dot{d}^2 + R^2 \dot\theta_2^2+ 2\dot{d}R\cos\theta_2 \dot{\theta_2}) \, , \\
+K_{\mathbf{S}} =  \frac{M}{2} \lVert \dot{\mathbf{S}} \rVert^2 = \frac{M}{2} \dot{d}^2 \, .
+\end{gather*}
 L'energia potenziale invece è:
-$$
-V_{\mathbf{P}_1}= mg P_{1y} = mg (S_y - R \cos \theta_1 )
-$$
-$$
-V_{\mathbf{P}_2} = mg P_{2y} = mg (S_y - R \cos \theta_2 ) 
-$$
-$$
-V_{\mathbf{S}} = mg S_{y}
-$$
-E quindi la lagrangiana del sistema si calcola, a meno di costanti, come:
-$$
-\mathcal{L} = K_{TOT} - V_{TOT} = \left(m+ \frac{M}{2}\right) \dot{d}^2 + \frac{m R^2}{2}  (\dot\theta_1^2 + \dot\theta_2^2) + m \dot{d} R (\cos\theta_1 \dot\theta_1 + \cos \theta_2 \dot \theta_2) + mgR(\cos\theta_1 + \cos \theta_2)
-$$
+\begin{gather*}
+V_{\mathbf{P}_1}= mg P_{1y} = mg (S_y - R \cos \theta_1 ) \, , \\
+V_{\mathbf{P}_2} = mg P_{2y} = mg (S_y - R \cos \theta_2 ) \, , \\
+V_{\mathbf{S}} = mg S_{y} \, .
+\end{gather*}
+E quindi la lagrangiana del sistema si calcola, a meno di costanti, come
+\begin{equation*}
+\mathcal{L} = K_{TOT} - V_{TOT} = \left(m+ \frac{M}{2}\right) \dot{d}^2 + \frac{m R^2}{2}  (\dot\theta_1^2 + \dot\theta_2^2) + m \dot{d} R (\cos\theta_1 \dot\theta_1 + \cos \theta_2 \dot \theta_2) + mgR(\cos\theta_1 + \cos \theta_2) \, .
+\end{equation*}
 \subsection{Equazioni del moto in assenza di attrito}
 Per proseguire è necessario approssimare
 la lagrangiana nel regime di piccole oscillazioni:
 \begin{equation}
-\mathcal{L}_{PO} =  \left(m+ \frac{M}{2}\right) \dot{d}^2 + \frac{m R^2}{2}  (\dot\theta_1^2 + \dot\theta_2^2) + m \dot{d} R (\dot \theta_1 + \dot \theta_2) - \frac{m gR}{2} (\theta_1^2 + \theta_2^2)
+\mathcal{L}_{PO} =  \left(m+ \frac{M}{2}\right) \dot{d}^2 + \frac{m R^2}{2}  (\dot\theta_1^2 + \dot\theta_2^2) + m \dot{d} R (\dot \theta_1 + \dot \theta_2) - \frac{m gR}{2} (\theta_1^2 + \theta_2^2) \, .
 \label{lagrangianapo}
 \end{equation}
-Si nota immediatamente che nella lagrangiana è presente una coordinata ciclica, $d$; è presente
+Si nota immediatamente che nella lagrangiana è presente una coordinata ciclica, $d$; c'è
  quindi un integrale primo del moto, cioè una quantità che resta costante durante 
 l'evoluzione temporale del sistema:
 \begin{equation}
-p_d = \frac{\partial \mathcal{L}_{PO}}{\partial \dot{d}} =(2m+M) \dot d + m R (\dot\theta_1 + \dot \theta_2)
+p_d = \frac{\partial \mathcal{L}_{PO}}{\partial \dot{d}} =(2m+M) \dot d + m R (\dot\theta_1 + \dot \theta_2) \, .
 \label{ciclica}
 \end{equation}
 Si può sfruttare adesso un conveniente cambio di coordinate per gli angoli:
 \begin{equation}
-\left\{\begin{array}{lr}
-  h = \theta_1 + \theta_2 \\
-  q = \theta_1 - \theta_2
-\end{array}\right.
+\setlength\arraycolsep{0pt}
+\renewcommand\arraystretch{1.25}
+\left\{
+\begin{array}{c}
+h = \theta_1 + \theta_2  \\
+q = \theta_1 - \theta_2
+\end{array}
+\right.
+,
 \label{definizionehq}
 \end{equation}
-notando che:
-$$
-  \theta_1^2 + \theta_2^2 = \frac{h^2 +q^2}{2}
-$$ 
-Le relazioni precedenti valgono anche tra le derivate.
-Riscrivendo la lagrangiana si ottiene:
-$$
-\mathcal{L}_{PO} =  \left(m+ \frac{M}{2}\right) \dot{d}^2 + \frac{mR^2}{4}  (\dot{h}^2 + \dot{q}^2) + m  R \dot{d}\dot{h} - \frac{mgR}{4}(h^2 + q^2)
-$$
-L'Eq.\ref{ciclica} diventa:
+notando che
 \begin{equation*}
-  p_d = \frac{\partial \mathcal{L}_{PO}}{\partial \dot{d}} =(2m+M) \dot d + m R \dot h
+  \theta_1^2 + \theta_2^2 = \frac{h^2 +q^2}{2} \, .
+\end{equation*}
+Le relazioni precedenti valgono anche tra le derivate.
+Riscrivendo la lagrangiana si ottiene
+\begin{equation*}
+\mathcal{L}_{PO} =  \left(m+ \frac{M}{2}\right) \dot{d}^2 + \frac{mR^2}{4}  (\dot{h}^2 + \dot{q}^2) + m  R \dot{d}\dot{h} - \frac{mgR}{4}(h^2 + q^2) \, .
+\end{equation*}
+L'\cref{ciclica} inoltre diventa 
+\begin{equation*}
+  p_d = \frac{\partial \mathcal{L}_{PO}}{\partial \dot{d}} =(2m+M) \dot d + m R \dot h \, .
 \end{equation*}
 E' possibile utilizzare ora un'altra funzione, la funzione di Routh $\mathcal{R}_{PO}$, per poter eliminare 
 un grado di libertà nelle equazioni del moto. Questa viene ricavata a partire dalla lagrangiana, introducendo solamente il
 momento $p_d$:
-$$
-\mathcal{R}_{PO}(h,\dot h, q, \dot q, d, p_d )  = 
-p_d \dot{d}(p_d, h,\dot h, q, \dot q)- \mathcal{L}(h,\dot h, q, \dot q, d, \dot{d}(p_d, h,\dot h, q, \dot q))
-$$
-dove sono state esplicitate le dipendenze dalle variabili. 
-In particolare si nota che nella lagrangiana bisogna scrivere $\dot d$ sfruttando l'Eq.\ref{ciclica}.
-Si ottiene immediatamente:
 \begin{equation*}
-  \mathcal{R}_{PO} = \frac{1}{2} \frac{(p_d -mR\dot h)^2}{2m + M}- \frac{mR^2}{4}  (\dot{h}^2 + \dot{q}^2) + \frac{mgR}{4}(h^2 + q^2)
+\mathcal{R}_{PO}(h,\dot h, q, \dot q, d, p_d )  = 
+p_d \dot{d}(p_d, h,\dot h, q, \dot q)- \mathcal{L}(h,\dot h, q, \dot q, d, \dot{d}(p_d, h,\dot h, q, \dot q)) \, ,
 \end{equation*}
-Da questa equazione si possono ricavare le equazioni del moto, le più importanti sono:
+dove sono state esplicitate le dipendenze dalle variabili. 
+In particolare si nota che nella lagrangiana bisogna scrivere $\dot d$ sfruttando l'\cref{ciclica}.
+Si ottiene immediatamente 
+\begin{equation*}
+  \mathcal{R}_{PO} = \frac{1}{2} \frac{(p_d -mR\dot h)^2}{2m + M}- \frac{mR^2}{4}  (\dot{h}^2 + \dot{q}^2) + \frac{mgR}{4}(h^2 + q^2) \, .
+\end{equation*}
+Da questa equazione si possono ricavare le equazioni del moto, le più importanti sono 
 \begin{equation}
-  \dot p_d = 0
+  \dot p_d = 0 \, ,
   \label{conservazione}
 \end{equation}
-che è ovviamente coerente con la conservazione di $p_d$ notata in Eq.\ref{ciclica}, e
+che è ovviamente coerente con la conservazione di $p_d$ notata in \cref{ciclica}, e
 \begin{equation}
   \begin{split}
-  \ddot h = -\frac{\alpha}{R} h \\
-  \ddot q = - \frac{g}{R} q
+  \ddot h = -\frac{\alpha}{R} h \, ,\\
+  \ddot q = - \frac{g}{R} q \, ,
   \end{split}
   \label{equazionifinalinondissipate}
 \end{equation}
-utilizzando l'Eq.\ref{conservazione} e ponendo $\alpha = \frac{(2m + M) g}{M} $.
+utilizzando l'\cref{conservazione} e ponendo $\alpha = \frac{(2m + M) g}{M} $.
 Con queste equazioni a disposizione si può completamente ricostruire il moto del sistema.
 Si nota che, partendo da una situazione iniziale arbitraria,
 la condizione di sincronizzazione in fase equivale alla richiesta che $q$ tenda a zero, mentre quella in controfase
 equivale alla richiesta che $h$ tenda a zero. 
-Occorre fare attenzione al fatto che però nella soluzione in Eq.\ref{equazionifinalinondissipate} sia $h$ che $q$ descrivono moti oscillatori con frequenza rispettiva
+Occorre fare attenzione al fatto che però nella soluzione in \cref{equazionifinalinondissipate} sia $h$ che $q$ descrivono moti oscillatori con frequenza rispettiva
 $\omega_h = \sqrt[]{\frac{\alpha}{R}}$ e $\omega_q = \sqrt[]{\frac{g}{R}}$.
 Le uniche soluzioni per cui i pendoli oscillano sincronizzati sono quelle per cui una tra $h$ o $q$ è nulla
 all'inizio del moto, restando quindi nulla per tutti gli istanti successivi.
@@ -289,40 +284,40 @@ Si supponga di voler includere nelle equazioni del moto un termine
 proporzionale alle velocità angolari $\dot \theta_1$ e $\dot \theta_2$, con costante comune di 
 proporzionalità $\gamma$, avente le dimensioni di una frequenza. 
 Riscrivendo le equazioni del moto 
-per queste due variabili, ricavandole dalla lagrangiana \ref{lagrangianapo} e semplificando i fattori in comune
-si ottiene:
+per queste due variabili, ricavandole dalla lagrangiana in \cref{lagrangianapo} e semplificando i fattori in comune
+si ottiene
 \begin{equation*}
-    R \ddot \theta_i + \ddot d = - g  \theta_i ,\qquad \qquad i =1,2
+    R \ddot \theta_i + \ddot d = - g  \theta_i , \qquad i =1,2 
 \end{equation*}
 e si nota che è possibile aggiungere al secondo membro, in cui sono scritte le 
 forze generalizzate, l'attrito citato sopra, agente ovviamente in verso 
 opposto alla velocità:
 \begin{equation*}
-  R \ddot \theta_i + \ddot d = - g \theta_i  - \gamma   \dot \theta_i,\qquad \qquad i =1,2
+  R \ddot \theta_i + \ddot d = - g \theta_i  - \gamma   \dot \theta_i, \qquad i =1,2 \, .
 \end{equation*}
-Sostituendo la derivata dell'Eq.\ref{ciclica}
+Sostituendo la derivata dell'\cref{ciclica}
 \begin{equation*}
   (2m + M) \ddot d = -mR (\ddot \theta_1 + \ddot \theta_2) 
 \end{equation*} 
-nell'equazione precedente si giunge alla coppia di equazioni
+nell'equazione precedente si giunge alla coppia di equazioni:
 \begin{equation*}
   R \ddot \theta_i -\frac{m}{2m + M}R (\ddot \theta_1 + \ddot \theta_2) 
-  = - g \theta_i  - \gamma   \dot \theta_i,\qquad \qquad i =1,2
+  = - g \theta_i  - \gamma   \dot \theta_i \, , \qquad i =1,2 \, ,
 \end{equation*}
 che dopo qualche passaggio algebrico si possono riscrivere con le variabili
 $h$ e $q$:
 \begin{equation*}
   \begin{split}
-  (R- \frac{2m}{2m + M}R) \ddot h + \gamma \dot h + g h  = 0 \\
-  R \ddot q +\gamma \dot q + g q = 0 
+  (R- \frac{2m}{2m + M}R) \ddot h + \gamma \dot h + g h  = 0 \, , \\
+  R \ddot q +\gamma \dot q + g q = 0 \, .
   \end{split}
 \end{equation*}
 Manipolando algebricamente questa equazione, ridefinendo la costante
 $\gamma$ e utilizzando le frequenze definite in precedenza si giunge infine a
 \begin{equation*}
   \begin{split}
-  \ddot h + \gamma \dot h + \omega_h^2 h  = 0 \\
-  \ddot q +\gamma \dot q + \omega_q^2 q = 0 
+  \ddot h + \gamma \dot h + \omega_h^2 h  = 0 \, ,\\
+  \ddot q +\gamma \dot q + \omega_q^2 q = 0 \, .
   \end{split}
 \end{equation*}
 La considerazione decisiva per osservare il fenomeno della sincronizzazione 
@@ -331,14 +326,10 @@ differenziando le nuove costanti con un pedice, si tiene conto di
 effetti dissipativi che influenzano in modo differente il modo di oscillazione
 in fase rispetto a quello in controfase.
 Le soluzioni generali di queste equazioni sono del tipo:
-\begin{equation}
-    h(t) = A_h e^{- \frac{\gamma_h}{2} t} \cos(\omega_h t + \beta_h)
-    \label{equazionefinaleh}
-  \end{equation}
-    \begin{equation}
-    q(t) = A_q e^{- \frac{\gamma_q}{2} t} \cos(\omega_q t + \beta_q)
-     \label{equazionefinaleq}
-    \end{equation}
+\begin{align}
+    h(t) &= A_h e^{- \frac{\gamma_h}{2} t} \cos(\omega_h t + \beta_h) \label{equazionefinaleh} \, , \\
+    q(t) &= A_q e^{- \frac{\gamma_q}{2} t} \cos(\omega_q t + \beta_q) \label{equazionefinaleq} \, ,
+\end{align}
 con $A_h$, $A_q$, $\beta_h$ e $\beta_q$ costanti reali.
 È evidente quindi che se le costanti $\gamma$ sono diverse, l'ampiezza di uno di questi due modi va a zero più velocemente rispetto 
 all'altro, sincronizzando il moto.
@@ -348,12 +339,12 @@ all'altro, sincronizzando il moto.
 
 Durante l'esperimento sono stati coinvolti diversi elementi, tra cui:
 \begin{enumerate}
-      \item rotaia e carrellini\footnote{Attrezzatura gentilmente concessa dal liceo E.Medi di Senigallia}, mostrati in Fig.\ref{photo_crane}, con basso coefficiente di attrito solitamente
+      \item rotaia e carrellini\footnote{Attrezzatura gentilmente concessa dal liceo E.Medi di Senigallia}, mostrati in \cref{photo_crane}, con basso coefficiente di attrito solitamente
       utilizzati in esperimenti relativi alla conservazione della quantità
       di moto;
       \item due alte sedie in legno;
       \item filo di nylon trasparente;
-      \item due strutture identiche, mostrate in Fig.\ref{photo_crane}, progettate autonomamente e stampate in 3D;
+      \item due strutture identiche, mostrate in \cref{photo_crane}, progettate autonomamente e stampate in 3D;
       \item scotch di carta;
       \item monete varie;
       \item spago da cucina;
@@ -390,12 +381,12 @@ Per quanto riguarda gli strumenti di misura, sono stati invece utilizzati:
 Inizialmente la realizzazione del progetto era stata pensata tramite 
 una rotaia a cuscino d'aria, per poter studiare il fenomeno, nella sua parte transiente, 
 per un periodo di tempo lungo, grazie al poco attrito; questa idea però è stata abbandonata dopo alcuni tentativi per
-le numerose difficoltà sperimentali. In Fig.\ref{photo_crane_air} è mostrato uno dei modelli di supporto
+le numerose difficoltà sperimentali. In \cref{photo_crane_air} è mostrato uno dei modelli di supporto
 progettati e stampati in 3D montabili sui carrellini della rotaia.
 In seguito si è provato ad usare delle costruzioni giocattolo per la creazione di una rotaia
 e carrellini; purtroppo anche questo tentativo è stato accantonato a causa di 
 notevoli imperfezioni e mancanza di allineamento tra i vari pezzi di rotaia. 
-Un esempio di una parte della costruzione è mostrato in Fig.\ref{photo_lego}.
+Un esempio di una parte della costruzione è mostrato in \cref{photo_lego}.
 
 \begin{figure}[h!]
   \centering
@@ -419,14 +410,14 @@ La progettazione del modello si è rivolta, una volta recuperata l'apparecchiatu
 di laboratorio, alla costruzione dei supporti, disegnati tramite un
 software di modellizzazione tridimensionale e stampati con una stampante 3D.
 Una volta stampati diversi prototipi e scelto quello migliore sono state incollate
-tra loro le due parti costituenti il pezzo finale indicato in Fig\ref{photo_crane}, i cui modelli sono mostrati
-in Fig.\ref{photo_piece}, e, 
+tra loro le due parti costituenti il pezzo finale indicato in \cref{photo_crane}, i cui modelli sono mostrati
+in \cref{photo_piece}, e, 
 incastrato il pezzo sopra ciascun carrellino, si è costruito il supporto tramite due alte sedie
 sopra le quali è stata posta la rotaia. 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.9\textwidth]{../../media/img/fusion_project_cut.png}
-  \caption{\textit{Le parti della struttura mostrata in Fig.\ref{photo_crane}, visualizzate nel programma
+  \caption{\textit{Le parti della struttura mostrata in \cref{photo_crane}, visualizzate nel programma
   di modellazione 3D.}}
   \label{photo_piece}
 \end{figure}
@@ -469,7 +460,7 @@ offset prospettici in un unico verso, su un piano parallelo a quello di oscillaz
 pendoli e la sua proiezione è stata fatta approssimativamente coincidere con il
 centro della circonferenza passante per i due carrellini e i due pendoli a 
 riposo.
-L'apparato sperimentale completo è mostrato in Fig.\ref{setup_exp}
+L'apparato sperimentale completo è mostrato in \cref{setup_exp}
 
 \begin{figure}[h!]
   \centering
@@ -509,7 +500,7 @@ destinata all'analisi di immagini e video.
 In questo esperimento la libreria è stata utilizzata nel per tracciare il 
 movimento nel tempo dei pendoli e dei carrellini, in maniera automatizzata.
 E' stato utilizzato il C++ per la nota velocità in esecuzione rispetto a 
-python. Il codice è listato nell'appendice \ref{listatocpp}.
+python. Il codice è listato in \cref{listatocpp}.
 Il codice inizialmente acquisisce il percorso di memorizzazione del file video, per poi 
 permettere all'utente di scegliere prima l'oggetto da tracciare
  e poi 
@@ -520,7 +511,7 @@ L'algoritmo di tracking, in questo caso KCF\footnote{https://arxiv.org/abs/1404.
 inizia poi a processare i vari frame, seguendo l'oggetto e scrivendo nel file
 le coordinate in pixel del centro del rettangolo (l'origine è nell'angolo in alto a sinistra e gli assi 
 sono diretti verso destra e verso il basso).
-Vari momenti del processo appena descritto sono mostrati in Fig.\ref{photo_tracking}.
+Vari momenti del processo appena descritto sono mostrati in \cref{photo_tracking}.
 
 \begin{figure}[h!]
   \centering
@@ -540,7 +531,7 @@ Vari momenti del processo appena descritto sono mostrati in Fig.\ref{photo_track
 Nell'immagine a destra si osserva il momento di selezione del pendolo, tracciando un rettangolo blu attorno 
 allo stesso. Nelle altre due immagini sono mostrati due screenshot effettuati alla 
 finestra di tracking, mentre l'algoritmo traccia l'oggetto desiderato, spostando il rettangolo blu.
-Nell'immagine a destra si nota anche un istante del processo di rilascio descritto in Sez.\ref{sezione_realizz}}}
+Nell'immagine a destra si nota anche un istante del processo di rilascio descritto in \cref{sezione_realizz}}}
 \label{photo_tracking}
 \end{figure}
 L'utente può e deve fermare l'acquisizione nel caso noti che il rettangolo
@@ -550,26 +541,25 @@ in un determinato frame.
 
 In seguito all'acquisizione di vari set dati, nel nostro caso 4 per ogni oggetto,
 per cercare di limitare eventuali errori di posizione, è stata fatta 
-una media tramite il programma in Sez.\ref{listatoavg}, stavolta scritto
+una media tramite il programma in \cref{listatoavg}, stavolta scritto
 in python per elasticità nella gestione dei dati in lettura e scrittura.
 Sono così stati prodotti quattro files finali, uno per ogni elemento mobile.
 
-Infine, nel listato in Sez.\ref{listatoplotter}, sono stati letti i quattro
+Infine, nel listato in \cref{listatoplotter}, sono stati letti i quattro
 files citati sopra, e sono stati poi ricavati con considerazioni
-trigonometriche gli angoli indicati in Fig.\ref{pendolicorpolibero} come
+trigonometriche gli angoli indicati in \cref{pendolicorpolibero} come
 $\theta_1$ e $\theta_2$. Sono quindi stati scelti degli intervalli 
 temporali appropriati per effettuare i fit di funzioni del tipo presentato in 
-Eq.\ref{equazionefinaleh} e 
-\ref{equazionefinaleq}, in particolare scartando 
+\cref{equazionefinaleh,equazionefinaleq}, in particolare scartando 
 i punti iniziali in cui l'apparecchio è fermo, oppure gli ultimi 
 qualora il fenomeno da osservare non fosse più presente.
 
 \section{Risultati e discussione}
-Il grafico degli angoli $\theta_1$ e $\theta_2$ di Fig.\ref{pendolicorpolibero} 
+Il grafico degli angoli $\theta_1$ e $\theta_2$ di \cref{pendolicorpolibero} 
 al trascorrere del tempo, mediato sul 
 numero di acquisizioni effettuate, è mostrato in
-Fig.\ref{angles_full}, mentre è presente uno zoom sugli istanti iniziali in Fig,\ref{anlges_accurate},
-e uno zoom sui massimi in Fig.\ref{angles_decrease}, in cui i punti sono stati collegati 
+\cref{angles_full}, mentre è presente uno zoom sugli istanti iniziali in \cref{anlges_accurate},
+e uno zoom sui massimi in \cref{angles_decrease}, in cui i punti sono stati collegati 
 da linee continue.
 
 \begin{figure}[h!]
@@ -595,10 +585,10 @@ da linee continue.
   \label{angles_decrease}
 \end{figure}
 
-In Fig.\ref{angles_full} si nota come, dopo un breve periodo iniziale di quiete, in cui il
+In \cref{angles_full} si nota come, dopo un breve periodo iniziale di quiete, in cui il
 pendolo $\mathbf{P}_1$ si trova in quiete, mentre il pendolo $\mathbf{P}_2$ descrive piccole
 oscillazioni dell'ampiezza di circa 1°, che si è cercato di ridurre il più possibile manualmente,
-il sistema viene lasciato libero di evolvere: il dettaglio è presente in Fig.\ref{anlges_accurate}.
+il sistema viene lasciato libero di evolvere: il dettaglio è presente in \cref{anlges_accurate}.
 Dopo un momento di transizione, in cui i pendoli e i carrellini descrivono il loro complicato moto,
 circa dall'istante 4.6 all'istante 8.5, il sistema mantiene il suo moto nella condizione di
 oscillazioni in controfase, quindi con i carrellini necessariamente fermi, per la conservazione
@@ -607,19 +597,19 @@ della quantità di moto iniziale, nulla. I pendoli quindi sono stati sincronizza
 centrate sugli 0°, errore probabilmente dovuto al tracciamento effettuato in prospettiva.
 Si tratta di un errore che, seppur minimo, è sistematico e si continua a manifestare in tutto il moto, 
 con la traslazione verso l'alto di tutto il grafico di circa 1°.
-Nella Fig.\ref{angles_decrease}, dove i punti sono stati collegati da una linea continua nell'
+Nella \cref{angles_decrease}, dove i punti sono stati collegati da una linea continua nell'
 intento di essere più chiari, si nota come sia presente un'evidente differenza nelle oscillazioni 
 dei due pendoli: l'ampiezza del pendolo $\mathbf{P}_2$ risulta decrescere più rapidamente rispetto
 all'altra: un probabile effetto di un maggiore attrito influente sul pendolo stesso, ad esempio
-a livello del perno. Non si tratta infatti di un offset prospettico in quanto dalla Fig.\ref{angles_full}
+a livello del perno. Non si tratta infatti di un offset prospettico in quanto dalla \cref{angles_full}
 è evidente come la diminuzione dell'ampiezza sia presente simmetricamente, anche a livello dei
 minimi di oscillazione.
 
-Possono quindi essere costruite e analizzate le variabili $h$ e $q$, definite nel sistema \ref{definizionehq}
-e mostrate al variare del tempo nelle Fig.\ref{fit_h} e \ref{fit_q}.
+Possono quindi essere costruite e analizzate le variabili $h$ e $q$, definite nel sistema \labelcref{definizionehq}
+e mostrate al variare del tempo nelle \cref{fit_h,fit_q}.
 In queste due figure sono anche presenti i due fit delle equazioni teoriche che dovrebbero regolare,
-secondo le ipotesi indicate in Sez.\ref{sezioneattrito}, il moto delle due variabili, ossia le Eq.\ref{equazionefinaleh}
- e \ref{equazionefinaleq}. In basso nelle figure sono mostrati anche i residui, ossia la differenza
+secondo le ipotesi indicate in \cref{sezioneattrito}, il moto delle due variabili, ossia le \cref{equazionefinaleh,equazionefinaleq}.
+In basso nelle figure sono mostrati anche i residui, ossia la differenza
 , calcolata punto per punto, tra i valori del fit e quelli dei punti acquisiti.
 \begin{figure}[h!]
   \centering
@@ -644,13 +634,13 @@ sistematico che si potrebbe star trascurando; invece si può ragionevolmente ipo
 presenza di errori casuali, anche dovuti all'imprecisione del metodo di acquisizione, come si nota
 dalla distribuzione più o meno casuale dei punti.
 
-Alcuni dubbi sorgono osservando la Fig.\ref{fit_h}
+Alcuni dubbi sorgono osservando la \cref{fit_h}
 , in particolare gli istanti successivi agli \SI{8}{\s}: sembra permanga un'oscillazione
 residua, che si traduce in una non esatta sincronia nel movimento dei pendoli; 
 praticamente quando un pendolo si trova in una posizione l'altro non si trova nella 
 posizione simmetrica, ma leggermente spostato da questa.
 L'origine di questo fenomeno non sembra essere dovuto al differente
-attrito presente sui due perni, mostrato in Fig.\ref{angles_decrease}, in quanto
+attrito presente sui due perni, mostrato in \cref{angles_decrease}, in quanto
 l'oscillazione residua si mantiene anche al diminuire dell'ampiezza delle
 oscillazioni del pendolo più smorzato; il fenomeno potrebbe invece essere 
 provocato dalla minima differenza di lunghezza 
@@ -663,7 +653,8 @@ più l'attrito dinamico ma quello statico, che è caratterizzato da una maggiore
 Per quanto riguarda gli errori sulle acquisizioni di posizione, questi non sono stati
 stimati a causa della mancanza di informazioni sulla confidenza dell'algoritmo di tracking.
 
-I parametri delle funzioni $h(t)$ \ref{equazionefinaleh} e $q(t)$ \ref{equazionefinaleq}, stimati dal fit, sono elencati nelle Tab.\ref{parametrih} e \ref{parametriq}.
+I parametri delle funzioni $h(t)$ \labelcref{equazionefinaleh} e $q(t)$ \labelcref{equazionefinaleq}, stimati dal fit, sono elencati rispettivamente 
+nelle \cref{parametrih,parametriq}.
 In tabella è indicata anche la somma degli scarti quadratici tra il fit e i punti, il
 $\chi^2_h$, indicatore numerico della bontà del fit.
 \begin{table}[h!]
@@ -681,7 +672,7 @@ $\chi^2_h$, indicatore numerico della bontà del fit.
       $\chi^2_h$   &  \SI{29.6}{}  \\
       \midrule
     \end{tabular}
-  \caption{\textit{Parametri ottenuti dal fit della funzione $h(t)$ \ref{equazionefinaleh}.}}
+  \caption{\textit{Parametri ottenuti dal fit della funzione $h(t)$ \labelcref{equazionefinaleh}.}}
   \label{parametrih}
 \end{minipage}
 \begin{minipage}{0.45\linewidth}
@@ -697,7 +688,7 @@ $\chi^2_h$, indicatore numerico della bontà del fit.
         $\chi^2_q$   &  \SI{26.1}{}  \\
         \midrule
       \end{tabular}
-    \caption{\textit{Parametri ottenuti dal fit della funzione $h(t)$ \ref{equazionefinaleh}.}}
+    \caption{\textit{Parametri ottenuti dal fit della funzione $q(t)$ \labelcref{equazionefinaleq}.}}
     \label{parametriq}
 \end{minipage}
 \end{table}
@@ -706,7 +697,7 @@ un parametro responsabile della traslazione dei grafici delle funzioni rispetto
 all'asse $y$; questo non è stato però riportato in quanto per il miglior fit
 tale parametro restava nullo.
 
-Calcolando poi i valori delle frequenze $\omega$, definite in Sez.\ref{sezionesenzaattrito},
+Calcolando poi i valori delle frequenze $\omega$, definite in \cref{sezionesenzaattrito},
 si ottiene:
 $$
 \omega_h = \SI{5.62 \pm 0.04}{\hertz}
@@ -714,8 +705,7 @@ $$
 $$
 \omega_q = \SI{3.40 \pm 0.02}{\hertz}
 $$
-dati che risultano essere in accordo quasi soddisfacente con i risultati del fit in Tab.\ref{parametrih}
-e \ref{parametriq}. 
+dati che risultano essere in accordo quasi soddisfacente con i risultati del fit delle \cref{parametrih,parametriq}.
 È presente una maggiore discordanza per quanto riguarda $\omega_h$, dell'8\%, dovuta 
 alle varie sorgenti di errore citate in precedenza ma anche al minor numero di punti disponibili
 per il fit.
