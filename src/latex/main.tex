@@ -36,8 +36,8 @@
 \usepackage[ddmmyyyy]{datetime}
 \usepackage[export]{adjustbox}
 % for watermark
-\usepackage{draftwatermark}
-\SetWatermarkText{\includegraphics{../../media/img/draft_watermark.png}}
+%\usepackage{draftwatermark}
+%\SetWatermarkText{\includegraphics{../../media/img/draft_watermark.png}}
 
 \titlespacing*{\section}{0px}{3mm}{1mm}
 \titlespacing*{\subsection}{0px}{3mm}{1mm}
@@ -124,10 +124,11 @@
 \maketitle
     \begin{abstract}
         In questo documento si introduce il fenomeno emergente della sincronizzazione.
-        Si sceglie poi il sistema di due pendoli accoppiati per analizzare le caratteristiche
-        dinamiche che portano alla sincronizzazione stessa, confermando l'ipotesi che
+        Si sceglie poi un sistema composto da due pendoli accoppiati per analizzare le caratteristiche
+        dinamiche che lo portano alla sincronizzazione, giungendo alla conlcusione che
         la causa del fenomeno sia la differenza tra i tassi di dissipazione dei principali
         modi normali di oscillazione.
+        Infine si effettua un esperimento per valutare la bontà della previsione teorica.
     \end{abstract}
 
 \section{Introduzione}
@@ -136,7 +137,7 @@ In tutti questi casi sono considerate situazioni in cui i singoli elementi che c
 Le interazioni che abbiamo descritto fino ad ora sono però manifestazione di interazioni non fondamentali dal punto di vista fisico: si tratta di fenomeni emergenti. 
 Esistono però anche delle situazioni in cui la sincronizzazione è attribuibile alle interazioni fisiche fondamentali: possiamo per esempio pensare ai sistemi meccanici composti da pendoli o metronomi accoppiati.
 
-Un problema di questo tipo fu affrontato per la prima volta nel Febbraio 1665, dal fisico Olandese Christiaan Huygens: doveva affrontare il problema di migliorare la precisione degli orologi a pendolo, anche essi da lui inventati. Si trovava nella sua stanza a causa di una "leggera indisposizione" quando si accorse che due orologi a pendolo che aveva costruito si erano spontaneamente sincronizzati, in controfase\footnote{controllare}. Provò allora, sospettando un accoppiamento dovuto al mezzo a cui si trovavano entrambi in contatto, a svolgere alcuni esperimenti, in particolare agganciandone due a un supporto in legno sospeso tra due sedie, come si nota da \cref{pendoli_huygens}.
+Un problema di questo tipo fu affrontato per la prima volta nel Febbraio 1665, dal fisico Olandese Christiaan Huygens: doveva affrontare il problema di migliorare la precisione degli orologi a pendolo, anche essi da lui inventati. Si trovava nella sua stanza a causa di una "leggera indisposizione" quando si accorse che due orologi a pendolo che aveva costruito si erano spontaneamente sincronizzati. Provò allora, sospettando un accoppiamento dovuto al mezzo a cui si trovavano entrambi in contatto, a svolgere alcuni esperimenti, in particolare agganciandone due a un supporto in legno sospeso tra due sedie, come si nota da \cref{pendoli_huygens}.
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{../../media/img/pendolums.png}
