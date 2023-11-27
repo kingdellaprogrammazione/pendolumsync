@@ -50,7 +50,7 @@
 \setlength{\parindent}{10mm}
 
 \author{Edoardo Frulla}
-\date{Corso "Introduzione ai sistemi complessi", I semestre a.a. 2022/2023 \\ \vspace{0.3cm} \today}
+\date{Corso "Introduzione ai sistemi complessi" \\ \vspace{0.3cm} I semestre a.a. 2022/2023 \\ \vspace{0.3cm} \today}
 \title{Sincronizzazione di due pendoli accoppiati}  
 
 
@@ -376,6 +376,7 @@ Per quanto riguarda gli strumenti di misura, sono stati invece utilizzati:
   \item macchina fotografica semi-professionale;
   \item treppiede per macchina fotografica;
   \item metro estendibile (risoluzione \SI{1}{\milli\m});
+  \item livella a bolla;
   \item libreria di object tracking della suite OpenCV\footnote{https://opencv.org/}.
 \end{enumerate}
 \subsection{Realizzazione pratica del modello}
@@ -529,10 +530,10 @@ Vari momenti del processo appena descritto sono mostrati in \cref{photo_tracking
   \includegraphics[width=0.9\textwidth]{../../media/img/tracking_3.png}
 \end{minipage}
 \caption{\textit{Tre istanti del processo di tracking dell'oggetto.
-Nell'immagine a destra si osserva il momento di selezione del pendolo, tracciando un rettangolo blu attorno 
+Nell'immagine a sinistra si osserva il momento di selezione del pendolo, tracciando un rettangolo blu attorno 
 allo stesso. Nelle altre due immagini sono mostrati due screenshot effettuati alla 
 finestra di tracking, mentre l'algoritmo traccia l'oggetto desiderato, spostando il rettangolo blu.
-Nell'immagine a destra si nota anche un istante del processo di rilascio descritto in \cref{sezione_realizz}}}
+Nell'immagine a sinistra si nota anche un istante del processo di rilascio descritto in \cref{sezione_realizz}}}
 \label{photo_tracking}
 \end{figure}
 L'utente può e deve fermare l'acquisizione nel caso noti che il rettangolo
@@ -581,7 +582,7 @@ da linee continue.
   \centering
   \includegraphics[width=0.8\textwidth]{../../media/plot/angles_decrease.pdf}
   \caption{\textit{Grafico dei due angoli $\theta_1$ e $\theta_2$
-  al trascorrere del tempo. Dettaglio delle creste. Si nota come la diminuzione delle ampiezze
+  al trascorrere del tempo, dettaglio delle creste. Si nota come la diminuzione delle ampiezze
   sia di intensità differente.} }
   \label{angles_decrease}
 \end{figure}
