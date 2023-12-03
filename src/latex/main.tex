@@ -137,7 +137,7 @@ In tutti questi casi sono considerate situazioni in cui i singoli elementi che c
 Le interazioni che abbiamo descritto fino ad ora sono però manifestazione di interazioni non fondamentali dal punto di vista fisico: si tratta di fenomeni emergenti. 
 Esistono però anche delle situazioni in cui la sincronizzazione è attribuibile alle interazioni fisiche fondamentali: possiamo per esempio pensare ai sistemi meccanici composti da pendoli o metronomi accoppiati.
 
-Un problema di questo tipo fu affrontato per la prima volta nel Febbraio 1665, dal fisico Olandese Christiaan Huygens: doveva affrontare il problema di migliorare la precisione degli orologi a pendolo, anche essi da lui inventati. Si trovava nella sua stanza a causa di una "leggera indisposizione" quando si accorse che due orologi a pendolo che aveva costruito si erano spontaneamente sincronizzati. Provò allora, sospettando un accoppiamento dovuto al mezzo a cui si trovavano entrambi in contatto, a svolgere alcuni esperimenti, in particolare agganciandone due a un supporto in legno sospeso tra due sedie, come si nota da \cref{pendoli_huygens}.
+Un problema di questo tipo fu affrontato per la prima volta nel Febbraio 1665, dal fisico Olandese Christiaan Huygens: doveva affrontare il problema di migliorare la precisione degli orologi a pendolo, anche essi da lui inventati. Si trovava nella sua stanza a causa di una "leggera indisposizione" quando si accorse che due orologi a pendolo che aveva costruito si erano spontaneamente sincronizzati. Provò allora, sospettando un accoppiamento dovuto al mezzo con cui si trovavano entrambi in contatto, a svolgere alcuni esperimenti, in particolare agganciandone due a un supporto in legno sospeso tra due sedie, come si nota da \cref{pendoli_huygens}.
 \begin{figure}
     \centering
     \includegraphics[width=0.4\textwidth]{../../media/img/pendolums.png}
@@ -239,7 +239,7 @@ un grado di libertà nelle equazioni del moto. Questa viene ricavata a partire d
 momento $p_d$:
 \begin{equation*}
 \mathcal{R}_{PO}(h,\dot h, q, \dot q, d, p_d )  = 
-p_d \dot{d}(p_d, h,\dot h, q, \dot q)- \mathcal{L}(h,\dot h, q, \dot q, d, \dot{d}(p_d, h,\dot h, q, \dot q)) \, ,
+p_d \dot{d}(d, p_d, h,\dot h, q, \dot q)- \mathcal{L}_{PO}(h,\dot h, q, \dot q, d, \dot{d}(d, p_d, h,\dot h, q, \dot q)) \, ,
 \end{equation*}
 dove sono state esplicitate le dipendenze dalle variabili. 
 In particolare si nota che nella lagrangiana bisogna scrivere $\dot d$ sfruttando l'\cref{ciclica}.
@@ -266,7 +266,7 @@ Si nota che, partendo da una situazione iniziale arbitraria,
 la condizione di sincronizzazione in fase equivale alla richiesta che $q$ tenda a zero, mentre quella in controfase
 equivale alla richiesta che $h$ tenda a zero. 
 Occorre fare attenzione al fatto che però nella soluzione in \cref{equazionifinalinondissipate} sia $h$ che $q$ descrivono moti oscillatori con frequenza rispettiva
-$\omega_h = \sqrt[]{\frac{\alpha}{R}}$ e $\omega_q = \sqrt[]{\frac{g}{R}}$.
+$\omega_h = \sqrt{\frac{\alpha}{R} \vphantom{\frac{g}{R}}}$ e $\omega_q = \sqrt[]{\frac{g}{R}}$.
 Le uniche soluzioni per cui i pendoli oscillano sincronizzati sono quelle per cui una tra $h$ o $q$ è nulla
 all'inizio del moto, restando quindi nulla per tutti gli istanti successivi.
 Il moto evidentemente non converge ad una soluzione particolare, attraversa invece entrambe le configurazioni di sincronizzazione 
