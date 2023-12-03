@@ -328,10 +328,16 @@ effetti dissipativi che influenzano in modo differente il modo di oscillazione
 in fase rispetto a quello in controfase.
 Le soluzioni generali di queste equazioni sono del tipo:
 \begin{align}
-    h(t) &= A_h e^{- \frac{\gamma_h}{2} t} \cos(\omega_h t + \beta_h) \label{equazionefinaleh} \, , \\
-    q(t) &= A_q e^{- \frac{\gamma_q}{2} t} \cos(\omega_q t + \beta_q) \label{equazionefinaleq} \, ,
+    h(t) &= A_h e^{- \frac{\gamma_h}{2} t} \cos(\tilde{\omega}_h t + \beta_h) \label{equazionefinaleh} \, , \\
+    q(t) &= A_q e^{- \frac{\gamma_q}{2} t} \cos(\tilde{\omega}_q t + \beta_q) \label{equazionefinaleq} \, ,
 \end{align}
-con $A_h$, $A_q$, $\beta_h$ e $\beta_q$ costanti reali.
+con $A_h$, $A_q$, $\beta_h$ e $\beta_q$ costanti reali, e dove 
+\begin{equation}
+\tilde{\omega}_i = \sqrt{\omega_i^2 -\left( \frac{\gamma_i}{2} \right)^2} \qquad 
+i = h,q 
+\, .
+\label{equation:omegadef}
+\end{equation}
 È evidente quindi che se le costanti $\gamma$ sono diverse, l'ampiezza di uno di questi due modi va a zero più velocemente rispetto 
 all'altro, sincronizzando il moto.
 
@@ -669,7 +675,7 @@ $\chi^2_h$, indicatore numerico della bontà del fit.
       \midrule
       $A_h$     & \ang{92 \pm 5} \\
       $\gamma_h$& \SI{0.77 \pm 0.02}{\hertz} \\
-      $\omega_h$& \SI{5.17 \pm 0.01}{\hertz}\\
+      $\tilde{\omega}_h$& \SI{5.17 \pm 0.01}{\hertz}\\
       $\beta_h$   &  \SI{1.63 \pm 0.06}{}  \\
       $\chi^2_h$   &  \SI{29.6}{}  \\
       \midrule
@@ -685,7 +691,7 @@ $\chi^2_h$, indicatore numerico della bontà del fit.
         \midrule
         $A_q$     & \ang{14.85 \pm 0.01} \\
         $\gamma_q$& \SI{0.00631 \pm 0.00006}{\hertz} \\
-        $\omega_q$& \SI{3.40231 \pm 0.00003}{\hertz}\\
+        $\tilde{\omega}_q$& \SI{3.40231 \pm 0.00003}{\hertz}\\
         $\beta_q$   &  \SI{0.275 \pm 0.001}{}  \\
         $\chi^2_q$   &  \SI{26.1}{}  \\
         \midrule
@@ -700,13 +706,14 @@ all'asse $y$; questo non è stato però riportato in quanto per il miglior fit
 tale parametro restava nullo.
 
 Calcolando poi i valori delle frequenze $\omega$, definite in \cref{sezionesenzaattrito},
+e notando che per i valori di $\gamma$ ottenuti dai fit 
+$\omega_i^2 \gg \left( \frac{\gamma_i}{2} \right)^2$, e conseguentemente in
+\cref{equation:omegadef} si ha $ \tilde{\omega}_i \approx \omega_i$ per $i=h,q$,
 si ottiene:
-$$
-\omega_h = \SI{5.62 \pm 0.04}{\hertz}
-$$
-$$
-\omega_q = \SI{3.40 \pm 0.02}{\hertz}
-$$
+\begin{align*}
+\tilde{\omega}_h \approx \omega_h = \SI{5.62 \pm 0.04}{\hertz} \, , \\
+\tilde{\omega}_q \approx \omega_q = \SI{3.40 \pm 0.02}{\hertz} \, ,
+\end{align*}
 dati che risultano essere in accordo quasi soddisfacente con i risultati del fit delle \cref{parametrih,parametriq}.
 È presente una maggiore discordanza per quanto riguarda $\omega_h$, dell'8\%, dovuta 
 alle varie sorgenti di errore citate in precedenza ma anche al minor numero di punti disponibili
