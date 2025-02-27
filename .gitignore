@@ -8,6 +8,10 @@
 *.toc
 *.lof
 *.lot
+*.dvi
+*.fdb_latexmk
+*.fls 
+*.synctex.gz
 
 # C++ files to ignore
 *.o
