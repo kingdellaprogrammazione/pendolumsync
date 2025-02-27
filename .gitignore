@@ -1,0 +1,36 @@
+# LaTeX files to ignore
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.pdf
+*.toc
+*.lof
+*.lot
+
+# C++ files to ignore
+*.o
+*.obj
+*.exe
+*.bin
+*.dbg
+*.pdb
+
+# Build directories
+build/
+Debug/
+Release/
+
+# IDE files
+*.vscode/
+*.idea/
+*.kdev4/
+*.kate/
+
+# Other files to ignore
+*.tmp
+*.swp
+*.swo
+*.bak
+*.~
