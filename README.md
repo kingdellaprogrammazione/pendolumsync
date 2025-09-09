@@ -42,10 +42,12 @@ $$
 Dopo qualche sostituzione, sfruttando la coordinata ciclica d si possono riscrivere le due equazioni con le nuove variabili.  La considerazione decisiva per osservare il fenomeno della sincronizzazione consiste nel considerare la costante gamma diversa per i due modi di oscillazione; differenziando le nuove costanti
 con un pedice, si tiene conto di effetti dissipativi che influenzano in modo differente il modo di oscillazione in fase rispetto a quello in controfase.  È evidente quindi che se le costanti gamma sono diverse, l'ampiezza di uno di questi due modi va a zero più velocemente rispetto all'altro, sincronizzando il moto. In conclusione le equazioni considerate sono:
 
-$$  \begin{split}
-  \ddot h + \gamma \dot h + \omega_h^2 h  = 0 \, ,\\
-  \ddot q +\gamma \dot q + \omega_q^2 q = 0 \, .
-  \end{split}$$
+$$  
+\begin{split}
+  \ddot h + \gamma_h \dot h + \omega_h^2 h  = 0, \\
+  \ddot q +\gamma_h \dot q + \omega_q^2 q = 0 .
+  \end{split}
+$$
 
 # Apparato sperimentale
 
@@ -102,8 +104,7 @@ In queste due figure sono anche presenti i due fit delle equazioni teoriche che 
 
 # Conclusioni
 
-In conclusione, è stata osservata con successo la sincronizzazione di due pendoli, ossia la diminuzione dell'ampiezza a zero di un modo normale di oscillazione del sistema, fatto dovuto a differenti tassi di dissipazione di energia nei due modi appena citati. I due coefficienti gamma sono stati stimati essere pari rispettivamente a
-0.77 ± 0.02 Hz per il modo in fase e 0.00631 ± 0.00006 Hz per quello in controfase.
+In conclusione, è stata osservata con successo la sincronizzazione di due pendoli, ossia la diminuzione dell'ampiezza a zero di un modo normale di oscillazione del sistema, fatto dovuto a differenti tassi di dissipazione di energia nei due modi appena citati. I due coefficienti $\gamma$ sono stati stimati essere pari rispettivamente a 0.77 ± 0.02 Hz per il modo in fase e 0.00631 ± 0.00006 Hz per quello in controfase.
 Notiamo infine che la stima dei coefficienti di attrito data dal fit è in accordo con l'idea intuitiva legata alla caratteristica del modo di oscillazione in cui il carrello è fermo, ossia alla minor dissipazione di energia rispetto a quello in cui il carrello oscilla in opposizione di fase rispetto ai pendoli; ciò è dovuto soprattutto al maggiore attrito generato durante lo scorrimento sulla rotaia che si somma al normale attrito generato sul perno dalle oscillazioni dei pendoli. Questa sorgente di attrito è circa di 2 ordini di grandezza superiore rispetto all'altra.
 
 
