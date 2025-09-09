@@ -1,12 +1,12 @@
 # Sincronizzazione di due pendoli accoppiati
 
 In questa repository è presente il materiale prodotto per l'esame di Sistemi Complessi della triennale in fisica di Bologna. L'oggetto dello studio è il fenomeno di sincronizzazione tra due pendoli accoppiati tramite un'asta.
-Di seguito è presentato un breve riassunto del lavoro effettuato; una descrizone completa è presente in ![questo file](./src/latex/main.tex).
+Di seguito è presentato un breve riassunto del lavoro effettuato; una descrizone completa è presente nel ![report](./src/latex/main.tex).
 
 ## Analisi meccanica del moto di due pendoli accoppiati
 
 <p align="center">
-  <img src="./media/cad/sketch_2.png" alt="Schema dell'apparato sperimentale visto dalla fotocamera." width="70%">
+  <img src="./media/cad/sketch_2_padding.png" alt="Schema dell'apparato sperimentale visto dalla fotocamera." width="70%">
 </p>
 
 Senza considerare attriti, dalla figura si calcola la lagrangiana del sistema, a meno di costanti, come
@@ -53,7 +53,7 @@ $$
 
 ## Materiale utilizzato
 
-Riferirsi a ![questo file](./src/latex/main.tex).
+Riferirsi al ![report](./src/latex/main.tex).
 
 ## Realizzazione pratica del modello
 
