@@ -25,30 +25,27 @@ q = \theta_1 - \theta_2.
 \end{array}
 $$
 
-
 E' possibile utilizzare ora un'altra funzione, la funzione di Routh, per poter eliminare un grado di libertà. Si ottiene immediatamente
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?\dpi{200}&space;\mathcal{R}_{PO}&space;=&space;\frac{1}{2}&space;\frac{(p_d&space;-mR\dot&space;h)^2}{2m&space;&plus;&space;M}&space;-&space;\frac{mR^2}{4}&space;(\dot{h}^2&space;&plus;&space;\dot{q}^2)&space;&plus;&space;\frac{mgR}{4}(h^2&space;&plus;&space;q^2)&space;\,." width="500">
-</p>
-Si può così completamente ricostruire il moto del sistema. Si nota che, partendo da una situazione iniziale arbitraria, la condizione di sincronizzazione in fase equivale alla richiesta che q tenda a zero, mentre quella in controfase equivale alla richiesta che h tenda a zero. Occorre fare attenzione al fatto
+
+$$  \mathcal{R}_{PO} = \frac{1}{2} \frac{(p_d -mR\dot h)^2}{2m + M}- \frac{mR^2}{4}  (\dot{h}^2 + \dot{q}^2) + \frac{mgR}{4}(h^2 + q^2) . $$ 
+
+Si può così completamente ricostruire il moto del sistema. Si nota che, partendo da una situazione iniziale arbitraria, la condizione di sincronizzazione in fase equivale alla richiesta che $q$ tenda a zero, mentre quella in controfase equivale alla richiesta che $h$ tenda a zero. Occorre fare attenzione al fatto
 che però nella soluzione dell'equazione il moto evidentemente non può convergere, essendo hamiltoniano, ad una soluzione particolare, fatta eccezione per alcune condizioni iniziali patologiche.
 
 ## Equazioni del moto in presenza di attrito
 
 Affinchè il moto converga ad una soluzione particolare, come accade nella realtà, è necessario tenere conto dei fenomeni dissipativi. Potrebbe ad esempio essere considerato l'attrito che si sviluppa nel perno dei pendoli, quello generato dal movimento delle ruote dei carrelli, sia radente che volvente, e quello tra l'aria e le varie componenti mobili. Si supponga di voler includere nelle equazioni del moto un termine proporzionale alle velocità angolari , con costante comune di proporzionalità gamma, avente le dimensioni di una frequenza. Riscrivendo le equazioni del moto e aggiugnendo alle forze generalizzate l'attrito citato sopra si ottengono due equazioni
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?\dpi{200}&space;R&space;\ddot&space;\theta_i&space;&plus;&space;\ddot&space;d&space;=&space;-&space;g&space;\theta_i&space;-&space;\gamma&space;\dot&space;\theta_i,&space;\qquad&space;i&space;=1,2&space;\,." width="300">
-</p>
+
+$$  R \ddot \theta_i + \ddot d = - g \theta_i  - \gamma   \dot \theta_i, \qquad i =1,2 .
+$$
+
 Dopo qualche sostituzione, sfruttando la coordinata ciclica d si possono riscrivere le due equazioni con le nuove variabili.  La considerazione decisiva per osservare il fenomeno della sincronizzazione consiste nel considerare la costante gamma diversa per i due modi di oscillazione; differenziando le nuove costanti
 con un pedice, si tiene conto di effetti dissipativi che influenzano in modo differente il modo di oscillazione in fase rispetto a quello in controfase.  È evidente quindi che se le costanti gamma sono diverse, l'ampiezza di uno di questi due modi va a zero più velocemente rispetto all'altro, sincronizzando il moto. In conclusione le equazioni considerate sono:
 
-
-<p align="center">
-<br>
-  <img src="https://latex.codecogs.com/svg.image?\dpi{200}&space;\begin{array}{l}\ddot&space;h&space;&plus;&space;\gamma_h&space;\dot&space;h&space;&plus;&space;\omega_h^2&space;h&space;=&space;0&space;\,,&space;\\&space;\ddot&space;q&space;&plus;&space;\gamma_q&space;\dot&space;q&space;&plus;&space;\omega_q^2&space;q&space;=&space;0&space;\,.\end{array}" width="170">
-</p>
-
-
+$$  \begin{split}
+  \ddot h + \gamma \dot h + \omega_h^2 h  = 0 \, ,\\
+  \ddot q +\gamma \dot q + \omega_q^2 q = 0 \, .
+  \end{split}$$
 
 # Apparato sperimentale
 
