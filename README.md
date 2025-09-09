@@ -12,20 +12,18 @@ Di seguito è presentato un breve riassunto del lavoro effettuato; una descrizon
 Senza considerare attriti, dalla figura si calcola la lagrangiana del sistema, a meno di costanti, come
 
 $$
-\mathcal{L}_{PO} =  \left(m+ \frac{M}{2}\right) \dot{d}^2 + \frac{m R^2}{2}  (\dot\theta_1^2 + \dot\theta_2^2) + m \dot{d} R (\dot \theta_1 + \dot \theta_2) - \frac{m gR}{2} (\theta_1^2 + \theta_2^2) \, .
+\mathcal{L}_{PO} =  \left(m+ \frac{M}{2}\right) \dot{d}^2 + \frac{m R^2}{2}  (\dot\theta_1^2 + \dot\theta_2^2) + m \dot{d} R (\dot \theta_1 + \dot \theta_2) - \frac{m gR}{2} (\theta_1^2 + \theta_2^2) .
 $$
-
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?\dpi{200}&space;\mathcal{L}&space;=&space;\left(m&plus;&space;\frac{M}{2}\right)&space;\dot{d}^2&space;&plus;&space;\frac{m&space;R^2}{2}&space;(\dot\theta_1^2&space;&plus;&space;\dot\theta_2^2)&space;&plus;&space;m&space;\dot{d}&space;R&space;(\cos\theta_1&space;\dot\theta_1&space;&plus;&space;\cos&space;\theta_2&space;\dot&space;\theta_2)&space;&plus;&space;mgR(\cos\theta_1&space;&plus;&space;\cos&space;\theta_2)&space;\,." alt="Lagrangian" width="700">
-</p>
 
 ## Equazioni del moto in assenza di attrito
 
 Per proseguire è necessario approssimare la lagrangiana nel regime di piccole oscillazioni e sfruttare un cambio di coordinate per gli angoli: 
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?\dpi{200}&space;\begin{array}{l}h&space;=&space;\theta_1&space;&plus;&space;\theta_2&space;\,,\\q&space;=&space;\theta_1&space;-&space;\theta_2&space;\,.\end{array}" width="100">
-</p>
+$$\begin{array}{c}
+h = \theta_1 + \theta_2 , \\
+q = \theta_1 - \theta_2.
+\end{array}
+$$
 
 
 E' possibile utilizzare ora un'altra funzione, la funzione di Routh, per poter eliminare un grado di libertà. Si ottiene immediatamente
