@@ -1,0 +1,58 @@
+name: Build LaTeX PDF (cached)
+
+on:
+  push:
+    paths:
+      - '**.tex'
+      - '.github/workflows/build-latex.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Restore TeX Live cache
+        id: texlive-cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.texlive
+          key: texlive-cache-${{ hashFiles('**/*.tex') }}
+          restore-keys: |
+            texlive-cache-
+      - name: Install minimal TeX Live with tlmgr (if not cached)
+        if: steps.texlive-cache.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y perl wget xz-utils
+          wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+          tar -xzf install-tl-unx.tar.gz
+          cd "$(find . -maxdepth 1 -type d -name 'install-tl-*' | head -n 1)"
+          ./install-tl --no-interaction --scheme=scheme-minimal --texdir=$HOME/.texlive
+      - name: Add TeX Live to PATH
+        run: echo "$HOME/.texlive/bin/x86_64-linux" >> $GITHUB_PATH
+
+      - name: Install required LaTeX packages
+        run: |
+          tlmgr option repository ctan
+          tlmgr update --self
+          tlmgr install collection-latex collection-latexrecommended collection-fontsrecommended
+      - name: Compile LaTeX document
+        run: |
+          pdflatex -interaction=nonstopmode src/latex/main.tex || true
+          pdflatex -interaction=nonstopmode src/latex/main.tex || true
+      - name: Save TeX Live cache (if newly installed)
+        if: steps.texlive-cache.outputs.cache-hit != 'true'
+        uses: actions/cache@v3
+        with:
+          path: ~/.texlive
+          key: texlive-cache-${{ hashFiles('**/*.tex') }}
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled-pdf
+          path: ./main.pdf
